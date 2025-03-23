@@ -195,6 +195,24 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
       padding: 10px;
     }
+    .action-icons {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+    }
+    .action-icons i {
+      cursor: pointer;
+      font-size: 18px;
+      padding: 6px;
+      border-radius: 50%;
+      color: white;
+    }
+    .action-icons .edit-icon {
+      background-color: lightblue;
+    }
+    .action-icons .delete-icon {
+      background-color: blue;
+    }
   </style>
 </head>
 <body>
@@ -344,7 +362,7 @@
                 <th>Lab Tests</th>
                 <th>Diet</th>
                 <th>Doctor’s Order</th>
-                <th>Actions</th>
+                <th>Update</th>
             </tr>
           </thead>
           <tbody id="recordsTable">
@@ -403,8 +421,10 @@
           <td>${patient.diet}</td>
           <td>${patient.doctorsOrder}</td>
           <td>
-            <button class="edit-btn" onclick="editPatient(${patient.id})">Edit</button>
-            <button class="delete-btn" onclick="deletePatient(${patient.id})">Delete</button>
+            <div class="action-icons">
+                <i class="fas fa-edit edit-icon" title="Edit" onclick="editPatient(${patient.id})"></i>
+                <i class="fas fa-trash delete-icon" title="Delete" onclick="deletePatient(${patient.id})"></i>
+            </div>
           </td>
         `;
         table.appendChild(row);
